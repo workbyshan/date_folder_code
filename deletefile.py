@@ -6,7 +6,7 @@ import shutil
 from datetime import datetime,date,timedelta
 
 
-path = "D:/pyt-practice/GFG/smalltest/"
+path = "/usr/db_daily_backup"
 list_dir = os.listdir(path)
 yestaday = date.today() - timedelta(days=1)
 today = date.today()
@@ -25,25 +25,3 @@ for iter in list_dir:
         # It will remove the folder without current & yestaday date.
         shutil.rmtree(path_local) 
         print("deleting dir complete")
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        #y = date.today()
-        #yestaday = date.today() - timedelta(days=3)
-        #print(y,"tday")
-        #print(yestaday,"yest")
-        #breakpoint()
-        #print("there is not 4 folders ,there is less then 4")
-
-    
- 
