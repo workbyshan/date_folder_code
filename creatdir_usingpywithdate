@@ -1,0 +1,22 @@
+""""
+This code is use to create a folder with the last three dates with the current date,
+it will create four folders if already some date folder is there it will skip that date and create the remaining folders
+"""
+import os
+from datetime import date
+from datetime import timedelta
+twoday = date.today()
+# It store to current date with other string as folder name
+today = (str(twoday)+"-digit")
+path ='D:/pyt-practice/GFG/smalltest/%s'
+# It join a path with folder name 
+folder_path = path%(today)
+# It create a current date folder,if it is not present 
+os.makedirs(folder_path, exist_ok=True)
+for x in range(1,4):
+    yestaday = date.today() - timedelta(days=x)
+    yest_aday = (str(yestaday)+"-digit")
+    folder_path = path%(yest_aday)
+    # It create a last three dats folder,if it is not present 
+    os.makedirs(folder_path, exist_ok=True)
+    print("creating dir completed")
