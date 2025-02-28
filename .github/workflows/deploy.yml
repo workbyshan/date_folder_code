@@ -1,0 +1,26 @@
+name: Auto Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main  # Change if using another branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to DigitalOcean via SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /usr/db_backup  
+            git pull origin main
+            echo "Deployment completed!"
+
