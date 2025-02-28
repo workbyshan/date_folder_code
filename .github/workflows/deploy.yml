@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /usr/db_backup  
+            cd /usr/db_backup/date_folder_code  
             set -e
             git pull origin main
             echo "Deployment completed!"
